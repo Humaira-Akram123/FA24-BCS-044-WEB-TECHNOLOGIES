@@ -1,142 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Al-Fatah | Home</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="styles.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aven Perfumes</title>
+
+  <!-- Bootstrap 5 + Bootstrap Icons + Lora font -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Lora', Georgia, serif; }
+ 
+    .top-bar { height: 8px; background: #4a2c2a; }
+ 
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: url('images/hero.jpg') center / cover no-repeat;
+    }
+ 
+    .navbar-brand img { height: 90px; }
+ 
+    .navbar .nav-link {
+      color: #111;
+      font-size: 17px;
+      padding: 0 0 3px;
+      margin: 0 17px;
+      border-bottom: 1px solid transparent;
+    }
+    .navbar .nav-link:hover { border-bottom-color: #111; }
+ 
+    .icons a { color: #111; font-size: 24px; line-height: 1; }
+ 
+    @media (min-width: 992px) {
+      .brand-wrap, .icons-wrap { flex: 1 0 0; }
+      .navbar-collapse { flex-grow: 0; }
+      .navbar .navbar-nav { margin-top: 14px; }
+      .icons-wrap { margin-top: 14px; }
+    }
+ 
+    @media (max-width: 991.98px) {
+      .navbar-brand img { height: 64px; }
+      .navbar-collapse { background: rgba(255, 255, 255, 0.95); padding: 16px; }
+      .navbar .nav-link { margin: 8px 0; display: inline-block; }
+    }
+ 
+    /* collections */
+    .collections { padding: 70px 0 80px; }
+    .collections h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 2.6rem; }
+    .collection-card { display: block; color: #111; text-decoration: none; }
+    .collection-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+    .collection-card span { display: inline-block; margin-top: 18px; font-family: 'Playfair Display', Georgia, serif; font-size: 1.3rem; }
+    .collection-card:hover span { text-decoration: underline; }
+ 
+    .to-top {
+      position: fixed; right: 16px; bottom: 16px;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #e8dccf; color: #3b2a22; font-size: 22px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+    }
+ 
+    /* footer */
+    .footer { background: #f5f5f5; padding: 90px 0 30px; color: #6b6b6b; }
+    .footer h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 1.15rem; color: #111; margin-bottom: 22px; }
+    .footer ul { list-style: none; padding: 0; margin: 0; }
+    .footer li { margin-bottom: 12px; }
+    .footer a { color: #6b6b6b; text-decoration: none; font-size: 1.05rem; }
+    .footer a:hover { color: #111; }
+    .footer p { font-size: 1.05rem; line-height: 1.55; margin-bottom: 4px; }
+    .footer .socials a { font-size: 24px; margin-right: 14px; }
+    .newsletter { background: #fff; display: flex; align-items: center; padding: 0 14px; height: 55px; }
+    .newsletter input { flex: 1; border: 0; outline: 0; background: transparent; padding: 0 12px; font-family: inherit; font-size: 1.05rem; }
+    .newsletter input::placeholder { color: #8a8a8a; }
+    .newsletter button { border: 0; background: none; font-size: 22px; color: #111; }
+    .footer-credit { margin-top: 70px; text-align: center; font-size: 0.95rem; }
+    .footer-credit a { text-decoration: underline; font-size: inherit; }
+ 
+    /* best sellers */
+    .bestsellers { padding: 20px 0 80px; }
+    .bestsellers h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 1.9rem; }
+    .product-card { position: relative; display: block; color: #111; text-decoration: none; }
+    .product-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: contain; display: block; background: #fff; }
+    .badge-sale {
+      position: absolute; top: 14px; left: 14px;
+      background: #9fd8c9; color: #fff; font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .product-name { font-family: 'Playfair Display', Georgia, serif; font-size: 0.9rem; margin: 14px 0 4px; }
+    .price { font-size: 0.85rem; font-weight: 700; }
+    .price-old { font-weight: 400; color: #999; text-decoration: line-through; margin-left: 6px; }
+    .btn-shop {
+      background: #e8dccf; color: #111; border: 0; border-radius: 4px;
+      padding: 10px 24px; font-size: 0.9rem;
+    }
+    .btn-shop:hover { background: #dccdbb; color: #111; }
+  </style>
 </head>
-<body>
-<div class="topbar py-1 text-center">Free delivery in Lahore on orders above Rs. 3,000</div>
-<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">Al-Fatah</a>
-    <div class="d-flex align-items-center order-lg-last">
-      <a href="#" class="btn btn-outline-dark position-relative" aria-label="Cart">
-        &#128722;<span class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-      </a>
-      <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    </div>
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav me-auto ms-lg-4">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#products">Grocery</a></li>
-        <li class="nav-item"><a class="nav-link" href="#products">Household</a></li>
-        <li class="nav-item"><a class="nav-link" href="#products">Personal Care</a></li>
-      </ul>
-      <form class="d-flex my-2 my-lg-0 me-lg-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search products" aria-label="Search">
-        <button class="btn btn-brand" type="button">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+<body id="top">
 
-<main class="container mt-4">
-  <section class="hero rounded p-4 p-md-5 mb-4">
-    <h1 class="fw-bold">Fresh groceries, delivered in Lahore</h1>
-    <p class="mb-3">Shop daily essentials at everyday prices.</p>
-    <a href="#products" class="btn btn-brand btn-lg">Shop now</a>
+  <div class="top-bar"></div>
+
+  <section class="hero">
+    <nav class="navbar navbar-expand-lg position-absolute top-0 start-0 w-100 px-3 py-3">
+      <div class="brand-wrap">
+        <a class="navbar-brand m-0" href="https://avenperfumes.com/">
+          <img src="images/logo.png" alt="Aven Luxury Perfumes">
+        </a>
+      </div>
+
+      <div class="icons-wrap order-lg-3 d-flex align-items-center justify-content-end gap-3 ms-auto ms-lg-0">
+        <div class="icons d-flex gap-3">
+          <a href="#" aria-label="Search"><i class="bi bi-search"></i></a>
+          <a href="#" aria-label="Account"><i class="bi bi-person"></i></a>
+          <a href="#" aria-label="Cart"><i class="bi bi-bag"></i></a>
+        </div>
+        <button class="navbar-toggler border-0 p-1 d-lg-none" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse order-lg-2 w-100" id="mainNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="https://avenperfumes.com/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://avenperfumes.com/collections/all">SHOP ALL</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://avenperfumes.com/collections/men-perfumes">MEN PERFUMES</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://avenperfumes.com/collections/woman-perfume">WOMEN PERFUMES</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://avenperfumes.com/pages/contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
   </section>
-  <section id="products">
-    <h2 class="h4 mb-3">Popular products</h2>
-    <div class="row g-3">
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="card h-100 product-card">
-          <a href="product.html"><img src="images/basmati-rice.svg" class="card-img-top" alt="Basmati Rice 5kg"></a>
-          <div class="card-body d-flex flex-column">
-            <h2 class="h6 card-title"><a href="product.html" class="text-decoration-none text-dark">Basmati Rice 5kg</a></h2>
-            <p class="price mb-3">Rs. 2,450</p>
-            <button class="btn btn-brand mt-auto" type="button">Add to Cart</button>
-          </div>
+
+  <section class="collections">
+    <div class="container-xl">
+      <h2 class="text-center mb-5">Our Product Collections</h2>
+      <div class="row g-4">
+        <div class="col-6 col-lg-3">
+          <a class="collection-card" href="#">
+            <img src="images/image-1.jpg" alt="Sultan Oud perfume">
+            <span>Amber &amp; Oud</span>
+          </a>
         </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="card h-100 product-card">
-          <a href="product.html"><img src="images/cooking-oil.svg" class="card-img-top" alt="Cooking Oil 3L"></a>
-          <div class="card-body d-flex flex-column">
-            <h2 class="h6 card-title"><a href="product.html" class="text-decoration-none text-dark">Cooking Oil 3L</a></h2>
-            <p class="price mb-3">Rs. 1,980</p>
-            <button class="btn btn-brand mt-auto" type="button">Add to Cart</button>
-          </div>
+        <div class="col-6 col-lg-3">
+          <a class="collection-card" href="#">
+            <img src="images/image-2.jpg" alt="Blaze Men perfume">
+            <span>Fresh &amp; Citrus</span>
+          </a>
         </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="card h-100 product-card">
-          <a href="product.html"><img src="images/tea.svg" class="card-img-top" alt="Black Tea 950g"></a>
-          <div class="card-body d-flex flex-column">
-            <h2 class="h6 card-title"><a href="product.html" class="text-decoration-none text-dark">Black Tea 950g</a></h2>
-            <p class="price mb-3">Rs. 1,650</p>
-            <button class="btn btn-brand mt-auto" type="button">Add to Cart</button>
-          </div>
+        <div class="col-6 col-lg-3">
+          <a class="collection-card" href="#">
+            <img src="images/image-3.jpg" alt="Night Safari perfume">
+            <span>Woody &amp; Aromatic</span>
+          </a>
         </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="card h-100 product-card">
-          <a href="product.html"><img src="images/milk.svg" class="card-img-top" alt="Full Cream Milk 1L"></a>
-          <div class="card-body d-flex flex-column">
-            <h2 class="h6 card-title"><a href="product.html" class="text-decoration-none text-dark">Full Cream Milk 1L</a></h2>
-            <p class="price mb-3">Rs. 340</p>
-            <button class="btn btn-brand mt-auto" type="button">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="card h-100 product-card">
-          <a href="product.html"><img src="images/juice.svg" class="card-img-top" alt="Mango Juice 1L"></a>
-          <div class="card-body d-flex flex-column">
-            <h2 class="h6 card-title"><a href="product.html" class="text-decoration-none text-dark">Mango Juice 1L</a></h2>
-            <p class="price mb-3">Rs. 360</p>
-            <button class="btn btn-brand mt-auto" type="button">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="card h-100 product-card">
-          <a href="product.html"><img src="images/biscuits.svg" class="card-img-top" alt="Biscuit Family Pack"></a>
-          <div class="card-body d-flex flex-column">
-            <h2 class="h6 card-title"><a href="product.html" class="text-decoration-none text-dark">Biscuit Family Pack</a></h2>
-            <p class="price mb-3">Rs. 220</p>
-            <button class="btn btn-brand mt-auto" type="button">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="card h-100 product-card">
-          <a href="product.html"><img src="images/detergent.svg" class="card-img-top" alt="Washing Powder 2kg"></a>
-          <div class="card-body d-flex flex-column">
-            <h2 class="h6 card-title"><a href="product.html" class="text-decoration-none text-dark">Washing Powder 2kg</a></h2>
-            <p class="price mb-3">Rs. 1,150</p>
-            <button class="btn btn-brand mt-auto" type="button">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="card h-100 product-card">
-          <a href="product.html"><img src="images/shampoo.svg" class="card-img-top" alt="Shampoo 400ml"></a>
-          <div class="card-body d-flex flex-column">
-            <h2 class="h6 card-title"><a href="product.html" class="text-decoration-none text-dark">Shampoo 400ml</a></h2>
-            <p class="price mb-3">Rs. 890</p>
-            <button class="btn btn-brand mt-auto" type="button">Add to Cart</button>
-          </div>
+        <div class="col-6 col-lg-3">
+          <a class="collection-card" href="#">
+            <img src="images/image-4.jpg" alt="Charming Soul perfume">
+            <span>Floral &amp; Fruity</span>
+          </a>
         </div>
       </div>
     </div>
   </section>
-</main>
 
-<footer class="mt-5 pt-5 pb-3">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-12 col-md-4"><h5 class="text-white">Al-Fatah</h5><p class="small">Everyday grocery and household shopping, delivered across Lahore.</p></div>
-      <div class="col-6 col-md-4"><h6 class="text-white">Shop</h6><ul class="list-unstyled small"><li><a href="index.html">All products</a></li><li><a href="#">Grocery</a></li><li><a href="#">Household</a></li></ul></div>
-      <div class="col-6 col-md-4"><h6 class="text-white">Help</h6><ul class="list-unstyled small"><li><a href="#">Contact us</a></li><li><a href="#">Delivery info</a></li><li><a href="#">Returns</a></li></ul></div>
+  <section class="bestsellers">
+    <div class="container-xl">
+      <h2 class="text-center mb-5">Best Seller Perfumes</h2>
+      <div class="row g-4">
+        <div class="col-6 col-lg-3">
+          <a class="product-card" href="#">
+            <span class="badge-sale">ON SALE</span>
+            <img src="images/Blaze_Men.png" alt="Blaze Men perfume">
+            <p class="product-name">Blaze Men</p>
+            <span class="price">Rs.2,400.00 PKR</span><span class="price price-old">Rs.2,900.00 PKR</span>
+          </a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <a class="product-card" href="#">
+            <span class="badge-sale">ON SALE</span>
+            <img src="images/Young_Lady.png" alt="Young Lady perfume">
+            <p class="product-name">Young Lady</p>
+            <span class="price">Rs.2,999.00 PKR</span><span class="price price-old">Rs.3,500.00 PKR</span>
+          </a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <a class="product-card" href="#">
+            <span class="badge-sale">ON SALE</span>
+            <img src="images/Millionaire.png" alt="Millionaire perfume">
+            <p class="product-name">Millionaire</p>
+            <span class="price">Rs.2,800.00 PKR</span><span class="price price-old">Rs.3,400.00 PKR</span>
+          </a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <a class="product-card" href="#">
+            <span class="badge-sale">ON SALE</span>
+            <img src="images/Seven_Springs.png" alt="Seven Springs perfume">
+            <p class="product-name">Seven Springs</p>
+            <span class="price">Rs.3,300.00 PKR</span><span class="price price-old">Rs.4,200.00 PKR</span>
+          </a>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="https://avenperfumes.com/collections/all" class="btn btn-shop">Shop more</a>
+      </div>
     </div>
-    <hr class="border-secondary">
-    <p class="small text-center mb-0">&copy; 2026 Al-Fatah clone &mdash; student project, not affiliated with Al-Fatah.</p>
-  </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container-fluid px-4">
+      <div class="row g-5">
+        <div class="col-12 col-md-6 col-lg-3">
+          <h3>Our Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">FAQ's</a></li>
+            <li><a href="https://avenperfumes.com/pages/contact">Contact Us</a></li>
+          </ul>
+        </div>
+ 
+        <div class="col-12 col-md-6 col-lg-3">
+          <h3>Our Policies</h3>
+          <ul>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Refund &amp; Return Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+ 
+        <div class="col-12 col-md-6 col-lg-3">
+          <h3>Our Store</h3>
+          <p><strong>WhatsApp:</strong> +92 318 4994436</p>
+          <p><strong>Email:</strong> avenperfumes@hotmail.com</p>
+          <p><strong>Customer Service Hours:</strong> Monday to Saturday 9:30am to 5:30 pm.</p>
+          <div class="socials mt-3">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+ 
+        <div class="col-12 col-md-6 col-lg-3">
+          <h3>Let's get in touch</h3>
+          <p class="mb-4 mt-3">Sign up for our newsletter.</p>
+          <form class="newsletter" onsubmit="return false;">
+            <i class="bi bi-envelope fs-5"></i>
+            <input type="email" placeholder="Enter your email" aria-label="Email address">
+            <button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-right"></i></button>
+          </form>
+        </div>
+      </div>
+ 
+      <p class="footer-credit">Developed and powered by <a href="#">Subtle Marketing</a></p>
+    </div>
+  </footer>
+
+  <a href="#top" class="to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
