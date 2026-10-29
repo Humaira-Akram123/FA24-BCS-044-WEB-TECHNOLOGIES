@@ -5,7 +5,7 @@ body { font-family: 'Lora', Georgia, serif; }
     .hero {
       position: relative;
       min-height: 100vh;
-      background: url('images/hero.jpg') center / cover no-repeat;
+      background: url('images/Hero.jpg') center / cover no-repeat;
     }
  
     .navbar-brand img { height: 90px; }
@@ -119,3 +119,108 @@ body { font-family: 'Lora', Georgia, serif; }
     .info summary::after { content: "\F282"; font-family: 'bootstrap-icons'; font-size: 0.9rem; transition: transform 0.2s; }
     .info details[open] summary::after { transform: rotate(180deg); }
     .info-body { color: #555; font-size: 0.95rem; padding-bottom: 16px; margin: 0; }
+
+/* =====================================================================
+   MIDTERM TASK 1 — CSS-only mega-menu            (BP = 992px, K = 4)
+   To change BP: edit the two 992px / 991.98px media queries below AND
+   Bootstrap's navbar-expand-lg on the <nav> (it collapses at 992px too).
+   ===================================================================== */
+.navbar { z-index: 2000; }                 /* above grid, cards, sticky/fixed elements */
+.mega-toggle { background: none; border: 0; border-bottom: 1px solid transparent; font-family: inherit; }
+.mega-toggle:hover, .mega-toggle:focus-visible { border-bottom-color: #111; }
+
+/* default (mobile): the desktop panel is not used, the accordion is */
+.mega-panel { display: none; }
+.mega-acc details { border-bottom: 1px solid #ddd; }
+.mega-acc summary { padding: 10px 0; cursor: pointer; font-family: 'Playfair Display', Georgia, serif; }
+.mega-acc ul { list-style: none; padding: 0 0 10px 12px; margin: 0; }
+.mega-acc li a { display: block; padding: 4px 0; color: #444; text-decoration: none; }
+
+@media (min-width: 992px) {                /* ---- BP and wider ---- */
+  .mega-acc { display: none; }
+  .mega-panel {
+    position: absolute;                    /* out of flow: never pushes content down */
+    top: 100%; left: 0; right: 0;          /* full width, directly under the navbar (.navbar is position:absolute) */
+    background: #fff;
+    border-top: 1px solid #e6e6e6;
+    box-shadow: 0 18px 30px rgba(0, 0, 0, .15);
+    padding: 28px 48px 34px;
+  }
+  /* hover bridge: the menu item's own box grows downward (padding) without moving layout (negative margin),
+     so the pointer never leaves :hover while travelling from "Shop by Category" into the panel */
+  .mega { padding-bottom: 60px; margin-bottom: -60px; }
+  .mega:hover > .mega-panel,
+  .mega:focus-within > .mega-panel { display: block; }   /* hover OR Tab focus; closes when focus leaves */
+  .mega-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto; }
+  .mega-col h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
+  .mega-col ul { list-style: none; margin: 0; padding: 0; }
+  .mega-col li a { display: block; padding: 5px 0; color: #444; text-decoration: none; font-size: 1rem; }
+  .mega-col li a:hover, .mega-col li a:focus-visible { color: #111; text-decoration: underline; }
+}
+
+/* =====================================================================
+   MIDTERM TASK 3 — cart badge, mini cart, Add to Cart buttons
+   ===================================================================== */
+.cart-wrap { position: relative; }
+.icons a#cartBtn { position: relative; display: inline-block; }
+.cart-badge {
+  position: absolute; top: -8px; right: -10px;
+  min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px;
+  background: #d93a3a; color: #fff; font: 700 11px/18px sans-serif; text-align: center;
+}
+.cart-badge[hidden], .mini-cart[hidden] { display: none; }
+.mini-cart {
+  position: absolute; top: calc(100% + 14px); right: 0; z-index: 2100;
+  width: min(320px, calc(100vw - 32px)); background: #fff; color: #111;
+  border: 1px solid #e6e6e6; box-shadow: 0 12px 28px rgba(0, 0, 0, .18); padding: 16px;
+  font-size: 0.95rem;
+}
+.mini-cart h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; margin: 0 0 10px; }
+.mini-cart ul { list-style: none; margin: 0; padding: 0; max-height: 260px; overflow-y: auto; }
+.mini-cart li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid #eee; }
+.mini-cart .mi-name { flex: 1; }
+.mini-cart .mi-price { font-weight: 700; white-space: nowrap; }
+.mini-cart .mi-remove { border: 1px solid #d93a3a; background: #fff; color: #d93a3a; border-radius: 4px; font-size: 0.8rem; padding: 2px 8px; }
+.mini-cart .mi-remove:hover { background: #d93a3a; color: #fff; }
+.mini-total { margin: 12px 0; text-align: right; }
+.mini-empty { color: #777; margin: 0; }
+.mini-checkout { display: block; text-align: center; background: #e8dccf; color: #111 !important; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 1rem !important; }
+.btn-add { margin-top: 10px; width: 100%; border: 1px solid #111; background: #fff; color: #111; border-radius: 4px; padding: 7px 0; font-size: 0.85rem; }
+.btn-add:hover:not(:disabled) { background: #111; color: #fff; }
+.btn-add:disabled { background: #eee; border-color: #ccc; color: #888; cursor: not-allowed; }
+
+/* =====================================================================
+   MIDTERM TASK 2 — checkout form (HTML5 validation + CSS only)    BP = 992px
+   ===================================================================== */
+.checkout { padding-bottom: 80px; max-width: 1100px; }
+.checkout h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; }
+.checkout-back { color: #111; text-decoration: none; }
+
+.checkout-form { display: grid; grid-template-columns: 1fr; gap: 24px; }      /* below BP: one column */
+.checkout-form fieldset { border: 1px solid #ddd; padding: 20px 24px 24px; margin: 0; min-width: 0; }
+.checkout-form legend { float: none; width: auto; padding: 0 10px; margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; }
+
+/* inside each fieldset: grid, labels above inputs on small screens */
+.checkout-form fieldset { display: grid; grid-template-columns: 1fr; gap: 6px 16px; align-content: start; }
+.field { display: contents; }               /* label / input / message become grid items of the fieldset */
+.field label { grid-column: 1; margin-top: 10px; font-weight: 500; }
+.field input, .field select { grid-column: -2 / -1; width: 100%; padding: 9px 10px; border: 1px solid #bbb; border-radius: 4px; font: inherit; background: #fff; }
+.field .msg { grid-column: -2 / -1; display: none; color: #c62828; font-size: 0.85rem; }
+
+/* validation feedback only AFTER the user has interacted with the field */
+.field input:user-invalid, .field select:user-invalid { border-color: #c62828; outline: 0; box-shadow: 0 0 0 2px rgba(198, 40, 40, .15); }
+.field input:user-invalid ~ .msg, .field select:user-invalid ~ .msg { display: block; }
+.field input:user-valid, .field select:user-valid { border-color: #2e7d32; }
+
+.checkout-submit { grid-column: 1 / -1; width: 100%; background: #4a2c2a; color: #fff; border: 0; border-radius: 4px; padding: 14px; font-size: 1.05rem; }
+.checkout-submit:hover { background: #351f1d; }
+
+@media (min-width: 992px) {                  /* BP and wider */
+  .checkout-form { grid-template-columns: 1fr 1fr; }                          /* fieldsets side by side */
+  .checkout-form fieldset { grid-template-columns: 110px 1fr; }               /* labels in a left column */
+  .field label { margin-top: 0; align-self: center; }
+}
+
+@media (max-width: 991.98px) {               /* below BP: mini cart spans the screen width, just under the navbar icons */
+  .mini-cart { position: fixed; top: 78px; left: 16px; right: 16px; width: auto; }
+}
