@@ -1,0 +1,181 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'times new roman', Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #2b2b2b;
+    background-color: #eef1f4;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+
+header.Intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    padding: 30px 40px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    border-bottom: 5px solid #1abc9c;
+}
+
+.profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    object-fit: cover;
+}
+
+.intro-text h1 {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
+}
+
+.intro-text h3 {
+    font-weight: normal;
+    color: #1abc9c;
+}
+
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #1abc9c;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #1abc9c;
+}
+
+
+main {
+    display: flex;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.resume-container {
+    flex: 0 0 32%;
+}
+
+.main-bar {
+    flex: 1;
+}
+
+
+.sidebar {
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #d5dbe0;
+    border-radius: 6px;
+}
+
+.sidebar section {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e3e7ea;
+}
+
+.sidebar section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.sidebar h2,
+.main-bar h2 {
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #2c3e50;
+    border-bottom: 2px solid #1abc9c;
+}
+
+.personal-info li {
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+.personal-info i {
+    margin-right: 8px;
+    color: #1abc9c;
+}
+
+.personal-info i span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    color: #2b2b2b;
+    margin-left: 4px;
+}
+
+.personal-info a:hover span {
+    text-decoration: underline;
+}
+
+
+.Education dt {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.Education dd {
+    margin: 2px 0 12px 0;
+    color: #555555;
+}
+
+
+.Skills li,
+.languages li {
+    margin-bottom: 6px;
+    padding-left: 14px;
+    border-left: 3px solid #1abc9c;
+}
+
+
+.main-bar section {
+    margin-bottom: 24px;
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #d5dbe0;
+    border-radius: 6px;
+}
+
+#projects li,
+#tools li {
+    margin-bottom: 10px;
+    padding-left: 16px;
+    border-left: 3px solid #1abc9c;
+}
+
+
+footer {
+    padding: 18px;
+    text-align: center;
+    background-color: #2c3e50;
+    color: #ffffff;
+}
+
