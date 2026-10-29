@@ -1,0 +1,121 @@
+body { font-family: 'Lora', Georgia, serif; }
+ 
+    .top-bar { height: 8px; background: #4a2c2a; }
+ 
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: url('images/hero.jpg') center / cover no-repeat;
+    }
+ 
+    .navbar-brand img { height: 90px; }
+ 
+    .navbar .nav-link {
+      color: #111;
+      font-size: 17px;
+      padding: 0 0 3px;
+      margin: 0 17px;
+      border-bottom: 1px solid transparent;
+    }
+    .navbar .nav-link:hover { border-bottom-color: #111; }
+ 
+    .icons a { color: #111; font-size: 24px; line-height: 1; }
+ 
+    @media (min-width: 992px) {
+      .brand-wrap, .icons-wrap { flex: 1 0 0; }
+      .navbar-collapse { flex-grow: 0; }
+      .navbar .navbar-nav { margin-top: 14px; }
+      .icons-wrap { margin-top: 14px; }
+    }
+ 
+    @media (max-width: 991.98px) {
+      .navbar-brand img { height: 64px; }
+      .navbar-collapse { background: rgba(255, 255, 255, 0.95); padding: 16px; }
+      .navbar .nav-link { margin: 8px 0; display: inline-block; }
+    }
+ 
+    /* collections */
+    .collections { padding: 70px 0 80px; }
+    .collections h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 2.6rem; }
+    .collection-card { display: block; color: #111; text-decoration: none; }
+    .collection-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+    .collection-card span { display: inline-block; margin-top: 18px; font-family: 'Playfair Display', Georgia, serif; font-size: 1.3rem; }
+    .collection-card:hover span { text-decoration: underline; }
+ 
+    .to-top {
+      position: fixed; right: 16px; bottom: 16px;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #e8dccf; color: #3b2a22; font-size: 22px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+    }
+ 
+    /* footer */
+    .footer { background: #f5f5f5; padding: 90px 0 30px; color: #6b6b6b; }
+    .footer h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 1.15rem; color: #111; margin-bottom: 22px; }
+    .footer ul { list-style: none; padding: 0; margin: 0; }
+    .footer li { margin-bottom: 12px; }
+    .footer a { color: #6b6b6b; text-decoration: none; font-size: 1.05rem; }
+    .footer a:hover { color: #111; }
+    .footer p { font-size: 1.05rem; line-height: 1.55; margin-bottom: 4px; }
+    .footer .socials a { font-size: 24px; margin-right: 14px; }
+    .newsletter { background: #fff; display: flex; align-items: center; padding: 0 14px; height: 55px; }
+    .newsletter input { flex: 1; border: 0; outline: 0; background: transparent; padding: 0 12px; font-family: inherit; font-size: 1.05rem; }
+    .newsletter input::placeholder { color: #8a8a8a; }
+    .newsletter button { border: 0; background: none; font-size: 22px; color: #111; }
+    .footer-credit { margin-top: 70px; text-align: center; font-size: 0.95rem; }
+    .footer-credit a { text-decoration: underline; font-size: inherit; }
+ 
+    /* best sellers */
+    .bestsellers { padding: 20px 0 80px; }
+    .bestsellers h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 1.9rem; }
+    .product-card { position: relative; display: block; color: #111; text-decoration: none; }
+    .product-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: contain; display: block; background: #fff; }
+    .badge-sale {
+      position: absolute; top: 14px; left: 14px;
+      background: #9fd8c9; color: #fff; font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .product-name { font-family: 'Playfair Display', Georgia, serif; font-size: 0.9rem; margin: 14px 0 4px; }
+    .price { font-size: 0.85rem; font-weight: 700; }
+    .price-old { font-weight: 400; color: #999; text-decoration: line-through; margin-left: 6px; }
+    .btn-shop {
+      background: #e8dccf; color: #111; border: 0; border-radius: 4px;
+      padding: 10px 24px; font-size: 0.9rem;
+    }
+    .btn-shop:hover { background: #dccdbb; color: #111; }
+  
+    /* product page */
+    .product { padding: 30px 0 80px; }
+    .product-img { width: 100%; max-height: 80vh; object-fit: contain; display: block; margin: 0 auto; }
+    .product-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.9rem; font-weight: 400; }
+    .p-price { font-size: 1.35rem; }
+    .p-old { font-size: 0.8rem; color: #999; text-decoration: line-through; margin: 0 8px 0 6px; }
+    .save-badge { background: #d93a3a; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 11px; border-radius: 20px; vertical-align: middle; }
+    .qty { display: inline-flex; align-items: center; background: #f4f4f4; border: 1px solid #e6e6e6; border-radius: 4px; height: 38px; }
+    .qty button { border: 0; background: none; width: 34px; height: 100%; font-size: 16px; }
+    .qty span { min-width: 28px; text-align: center; font-size: 0.9rem; }
+    .btn-cart { border: 1px solid #111; background: #fff; color: #111; border-radius: 4px; height: 38px; flex: 1; }
+    .btn-cart:hover { background: #111; color: #fff; }
+    .btn-buy { background: #e8dccf; color: #111; border: 0; border-radius: 4px; height: 38px; width: 100%; }
+    .btn-buy:hover { background: #dccdbb; }
+    .product-desc p { font-size: 0.95rem; color: #555; line-height: 1.7; margin-bottom: 10px; }
+    .accordion { --bs-accordion-bg: transparent; --bs-accordion-border-width: 0; --bs-accordion-btn-focus-box-shadow: none; --bs-accordion-active-bg: transparent; --bs-accordion-active-color: #111; --bs-accordion-btn-padding-x: 0; --bs-accordion-body-padding-x: 0; }
+    .accordion-item { border-bottom: 1px solid #ddd; }
+    .accordion-button { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; box-shadow: none; }
+    .accordion-body { font-size: 0.95rem; color: #555; }
+ 
+    /* no-JS mobile menu (checkbox toggle) */
+    .nav-check { position: absolute; opacity: 0; pointer-events: none; }
+    .navbar-toggler { cursor: pointer; }
+    @media (max-width: 991.98px) {
+      .nav-check:checked ~ .navbar-collapse { display: block; }
+    }
+ 
+    .qty-input { width: 80px; height: 38px; border: 1px solid #e6e6e6; border-radius: 4px; background: #f4f4f4; text-align: center; font-family: inherit; }
+    .info details { border-bottom: 1px solid #ddd; }
+    .info summary { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; padding: 16px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .info summary::-webkit-details-marker { display: none; }
+    .info summary::after { content: "\F282"; font-family: 'bootstrap-icons'; font-size: 0.9rem; transition: transform 0.2s; }
+    .info details[open] summary::after { transform: rotate(180deg); }
+    .info-body { color: #555; font-size: 0.95rem; padding-bottom: 16px; margin: 0; }
